@@ -1,8 +1,22 @@
-<section class="hero" aria-label="Introduction">
-  <div class="hero__atmosphere" aria-hidden="true"></div>
-  <div class="hero__grid" aria-hidden="true"></div>
+<section class="hero" aria-label="Introduction" data-hero>
+  <div class="hero__media" data-parallax>
+    <img
+      class="hero__photo"
+      src="{{ site.portrait | relative_url }}"
+      alt="Portrait of {{ site.author }}"
+      width="1200"
+      height="1500"
+      fetchpriority="high"
+      decoding="async"
+    >
+  </div>
+  <div class="hero__veil" aria-hidden="true"></div>
+  <div class="hero__grain" aria-hidden="true"></div>
+  <div class="hero__orb hero__orb--one" aria-hidden="true"></div>
+  <div class="hero__orb hero__orb--two" aria-hidden="true"></div>
+
   <div class="hero__inner">
-    <p class="hero__brand reveal" data-reveal>{{ site.title }}</p>
+    <p class="hero__brand" data-split="{{ site.title }}">{{ site.title }}</p>
     <h1 class="hero__title reveal" data-reveal>
       {{ site.tagline }}
     </h1>
@@ -11,10 +25,11 @@
       and agent workflows to models that hold up in production.
     </p>
     <div class="hero__actions reveal" data-reveal>
-      <a class="btn btn--primary" href="{{ '/#work' | relative_url }}">View selected work</a>
-      <a class="btn btn--ghost" href="{{ '/#contact' | relative_url }}">Get in touch</a>
+      <a class="btn btn--primary" href="{{ '/#work' | relative_url }}" data-magnetic>View selected work</a>
+      <a class="btn btn--ghost" href="{{ '/#contact' | relative_url }}" data-magnetic>Get in touch</a>
     </div>
   </div>
+
   <div class="hero__scroll" aria-hidden="true">
     <span>Scroll</span>
   </div>

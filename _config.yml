@@ -1,12 +1,13 @@
-title: Amir
+title: Amir Mahjubi
 tagline: AI Engineer
 description: >-
-  Personal portfolio of an AI Engineer building reliable machine learning systems,
+  Personal portfolio of Amir Mahjubi — AI Engineer building reliable machine learning systems,
   LLM applications, and production-grade AI products.
-author: Amir
+author: Amir Mahjubi
 email: hello@example.com
 url: "https://amirmahjubi.com"
 baseurl: ""
+portrait: /assets/images/amir-mahjubi.jpg
 
 # Update these with your real profiles
 social:
@@ -31,6 +32,7 @@ exclude:
   - vendor
   - README.md
   - LICENSE
+  - images
 
 defaults:
   - scope:

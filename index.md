@@ -1,5 +1,5 @@
 ---
 layout: home
-title: Amir — AI Engineer
+title: Amir Mahjubi — AI Engineer
 permalink: /
 ---

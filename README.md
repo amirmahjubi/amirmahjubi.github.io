@@ -1,4 +1,4 @@
-# Amir — AI Engineer Portfolio
+# Amir Mahjubi — AI Engineer Portfolio
 
 A personal portfolio site built with **Jekyll** for **GitHub Pages**.
 
@@ -10,7 +10,8 @@ Update these files with your real info:
 
 | File | What to change |
 |------|----------------|
-| `_config.yml` | Name, tagline, URL, email, social handles |
+| `_config.yml` | Name, tagline, URL, email, social handles, portrait path |
+| `assets/images/amir-mahjubi.jpg` | Your portrait (hero + nav) |
 | `_data/projects.yml` | Selected work |
 | `_data/experience.yml` | Roles and highlights |
 | `_data/expertise.yml` | Focus areas |

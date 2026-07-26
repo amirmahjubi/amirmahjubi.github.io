@@ -1,6 +1,9 @@
 <header class="site-header" data-header>
   <div class="site-header__inner">
-    <a class="logo" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    <a class="logo" href="{{ '/' | relative_url }}">
+      <img class="logo__img" src="{{ site.portrait | relative_url }}" alt="" width="36" height="36">
+      <span class="logo__text">{{ site.title }}</span>
+    </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
       <span class="sr-only">Menu</span>
       <span class="nav-toggle__bar"></span>
@@ -14,4 +17,5 @@
       </ul>
     </nav>
   </div>
+  <div class="scroll-progress" data-progress aria-hidden="true"></div>
 </header>

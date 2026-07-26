@@ -1,5 +1,15 @@
 <section class="section contact" id="contact">
   <div class="section__inner contact__inner reveal" data-reveal>
+    <div class="contact__portrait">
+      <img
+        src="{{ site.portrait | relative_url }}"
+        alt="{{ site.author }}"
+        width="120"
+        height="120"
+        loading="lazy"
+        decoding="async"
+      >
+    </div>
     <p class="eyebrow">Contact</p>
     <h2 class="contact__title">Let’s build something reliable</h2>
     <p class="contact__lede">
@@ -7,9 +17,9 @@
       retrieval, and applied ML.
     </p>
     <div class="contact__actions">
-      <a class="btn btn--primary" href="mailto:{{ site.social.email }}">{{ site.social.email }}</a>
+      <a class="btn btn--primary" href="mailto:{{ site.social.email }}" data-magnetic>{{ site.social.email }}</a>
       {% if site.social.linkedin %}
-        <a class="btn btn--ghost" href="https://www.linkedin.com/in/{{ site.social.linkedin }}" rel="me noopener" target="_blank">LinkedIn</a>
+        <a class="btn btn--ghost" href="https://www.linkedin.com/in/{{ site.social.linkedin }}" rel="me noopener" target="_blank" data-magnetic>LinkedIn</a>
       {% endif %}
     </div>
   </div>
