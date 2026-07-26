@@ -262,7 +262,7 @@ a:hover {
   transition: width 0.05s linear;
 }
 
-/* Hero — full-bleed portrait */
+/* Hero */
 .hero {
   position: relative;
   display: flex;
@@ -273,31 +273,28 @@ a:hover {
   overflow: hidden;
 }
 
-.hero__media {
+.hero__atmosphere {
   position: absolute;
   inset: 0;
   z-index: 0;
-  overflow: hidden;
+  background:
+    linear-gradient(180deg, transparent 40%, var(--bg) 95%),
+    radial-gradient(ellipse 70% 55% at 70% 35%, rgba(197, 180, 138, 0.16), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 20% 70%, rgba(94, 196, 176, 0.14), transparent 55%),
+    linear-gradient(135deg, #060b10 0%, #101820 45%, #070d12 100%);
+  animation: atmosphere-shift 18s ease-in-out infinite alternate;
 }
 
-.hero__photo {
-  width: 100%;
-  height: 115%;
-  object-fit: cover;
-  object-position: 68% 18%;
-  transform: scale(1.04);
-  filter: saturate(0.92) contrast(1.05);
-  will-change: transform;
-  animation: photo-in 1.6s var(--ease-out) both;
-}
-
-.hero__veil {
+.hero__grid {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background:
-    linear-gradient(90deg, rgba(7, 13, 18, 0.94) 0%, rgba(7, 13, 18, 0.78) 38%, rgba(7, 13, 18, 0.28) 68%, rgba(7, 13, 18, 0.45) 100%),
-    linear-gradient(180deg, rgba(7, 13, 18, 0.35) 0%, transparent 28%, rgba(7, 13, 18, 0.75) 78%, var(--bg) 100%);
+  background-image:
+    linear-gradient(rgba(242, 239, 232, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(242, 239, 232, 0.035) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 20%, transparent 75%);
+  opacity: 0.9;
   pointer-events: none;
 }
 
@@ -305,7 +302,7 @@ a:hover {
   position: absolute;
   inset: 0;
   z-index: 2;
-  opacity: 0.28;
+  opacity: 0.22;
   pointer-events: none;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
   mix-blend-mode: overlay;
@@ -853,28 +850,6 @@ a:hover {
   max-width: 38rem;
 }
 
-.contact__portrait {
-  width: 5.5rem;
-  height: 5.5rem;
-  margin-bottom: var(--space-4);
-  border-radius: 50%;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  box-shadow: 0 0 0 6px rgba(197, 180, 138, 0.08);
-}
-
-.contact__portrait img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 18%;
-  transition: transform 0.6s var(--ease);
-}
-
-.contact__portrait:hover img {
-  transform: scale(1.08);
-}
-
 .contact__title {
   margin: 0 0 var(--space-3);
   font-family: var(--font-display);
@@ -1056,17 +1031,9 @@ a:hover {
 .hero .reveal:nth-child(3) { transition-delay: 0.7s; }
 .hero .reveal:nth-child(4) { transition-delay: 0.85s; }
 
-@keyframes photo-in {
-  from {
-    opacity: 0;
-    transform: scale(1.12);
-    filter: saturate(0.7) contrast(1.1) brightness(0.7);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1.04);
-    filter: saturate(0.92) contrast(1.05);
-  }
+@keyframes atmosphere-shift {
+  from { filter: hue-rotate(0deg) saturate(1); }
+  to { filter: hue-rotate(10deg) saturate(1.06); }
 }
 
 @keyframes orb-drift {
@@ -1077,22 +1044,6 @@ a:hover {
 @keyframes scroll-pulse {
   0%, 100% { opacity: 0.45; }
   50% { opacity: 0.9; }
-}
-
-@media (max-width: 900px) {
-  .hero__photo {
-    object-position: 72% 12%;
-  }
-
-  .hero__veil {
-    background:
-      linear-gradient(180deg, rgba(7, 13, 18, 0.45) 0%, rgba(7, 13, 18, 0.55) 35%, rgba(7, 13, 18, 0.92) 72%, var(--bg) 100%),
-      linear-gradient(90deg, rgba(7, 13, 18, 0.55), rgba(7, 13, 18, 0.2));
-  }
-
-  .hero__brand {
-    max-width: none;
-  }
 }
 
 @media (max-width: 800px) {
@@ -1178,7 +1129,7 @@ a:hover {
     transition: none;
   }
 
-  .hero__photo,
+  .hero__atmosphere,
   .hero__orb,
   .hero__scroll,
   .contact::before,

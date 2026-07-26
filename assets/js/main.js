@@ -5,8 +5,6 @@
   var nav = document.querySelector("[data-nav]");
   var progress = document.querySelector("[data-progress]");
   var glow = document.querySelector("[data-cursor-glow]");
-  var parallaxEl = document.querySelector("[data-parallax]");
-  var photo = parallaxEl ? parallaxEl.querySelector(".hero__photo") : null;
 
   function onScroll() {
     var y = window.scrollY || window.pageYOffset;
@@ -17,11 +15,6 @@
       var max = doc.scrollHeight - doc.clientHeight;
       var pct = max > 0 ? (y / max) * 100 : 0;
       progress.style.width = pct + "%";
-    }
-
-    if (!reduceMotion && photo) {
-      var shift = Math.min(y * 0.18, 90);
-      photo.style.transform = "scale(1.04) translate3d(0, " + shift + "px, 0)";
     }
   }
 
