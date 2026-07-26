@@ -1,0 +1,25 @@
+- company: Horizon AI
+  role: AI Engineer
+  period: 2024 — Present
+  location: Remote
+  highlights:
+    - Shipped RAG features used by 40k+ monthly active users.
+    - Built evaluation suites that reduced hallucination regressions before release.
+    - Partnered with product to turn research prototypes into reliable services.
+
+- company: Signal Labs
+  role: Machine Learning Engineer
+  period: 2022 — 2024
+  location: Hybrid
+  highlights:
+    - Owned document understanding models from data collection through deployment.
+    - Cut inference cost 35% with quantization and batching without quality loss.
+    - Mentored juniors on experiment tracking and reproducible training.
+
+- company: Independent
+  role: ML Consultant
+  period: 2021 — 2022
+  location: Freelance
+  highlights:
+    - Delivered PoCs for startups exploring LLM workflows and automation.
+    - Designed data labeling plans and baseline models for early product validation.

@@ -1,0 +1,29 @@
+<section class="section" id="experience">
+  <div class="section__inner">
+    <header class="section__header reveal" data-reveal>
+      <p class="eyebrow">Experience</p>
+      <h2 class="section__title">Path so far</h2>
+      <p class="section__lede">Roles where I owned models, systems, and the product outcomes they unlock.</p>
+    </header>
+
+    <ol class="timeline">
+      {% for job in site.data.experience %}
+        <li class="timeline__item reveal" data-reveal>
+          <div class="timeline__when">
+            <p class="timeline__period">{{ job.period }}</p>
+            <p class="timeline__location">{{ job.location }}</p>
+          </div>
+          <div class="timeline__what">
+            <h3 class="timeline__role">{{ job.role }}</h3>
+            <p class="timeline__company">{{ job.company }}</p>
+            <ul class="timeline__highlights">
+              {% for point in job.highlights %}
+                <li>{{ point }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>

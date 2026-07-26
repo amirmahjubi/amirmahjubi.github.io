@@ -1,0 +1,36 @@
+<section class="section" id="work">
+  <div class="section__inner">
+    <header class="section__header reveal" data-reveal>
+      <p class="eyebrow">Selected work</p>
+      <h2 class="section__title">Projects that moved from prototype to production</h2>
+      <p class="section__lede">A few systems I’ve built end-to-end — models, APIs, evaluation, and the glue in between.</p>
+    </header>
+
+    <ol class="project-list">
+      {% for project in site.data.projects %}
+        <li class="project reveal" data-reveal>
+          <div class="project__meta">
+            <span class="project__year">{{ project.year }}</span>
+            <span class="project__role">{{ project.role }}</span>
+          </div>
+          <div class="project__body">
+            <h3 class="project__title">{{ project.title }}</h3>
+            <p class="project__summary">{{ project.summary }}</p>
+            <ul class="stack-list" aria-label="Tech stack">
+              {% for item in project.stack %}
+                <li>{{ item }}</li>
+              {% endfor %}
+            </ul>
+            {% if project.links %}
+              <ul class="link-row">
+                {% for link in project.links %}
+                  <li><a class="text-link" href="{{ link.url }}">{{ link.label }}</a></li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>

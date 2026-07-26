@@ -1,0 +1,47 @@
+- title: Retrieval-Augmented Research Assistant
+  year: 2025
+  role: Lead AI Engineer
+  stack: [LangChain, OpenAI, FastAPI, Pinecone, React]
+  summary: >-
+    Production RAG system that answers domain questions from private corpora
+    with citation-backed responses and eval-driven retrieval quality gates.
+  links:
+    - label: Case study
+      url: "#"
+    - label: GitHub
+      url: "#"
+
+- title: Multimodal Document Intelligence
+  year: 2024
+  role: ML Engineer
+  stack: [PyTorch, Vision Transformers, OCR, Hugging Face]
+  summary: >-
+    End-to-end pipeline that extracts structured fields from scanned PDFs and
+    images, cutting manual review time by over 60%.
+  links:
+    - label: Demo
+      url: "#"
+    - label: Write-up
+      url: "#"
+
+- title: LLM Evaluation Harness
+  year: 2024
+  role: Solo builder
+  stack: [Python, pytest, OpenTelemetry, Streamlit]
+  summary: >-
+    Offline + online evaluation toolkit for prompt regressions, hallucination
+    checks, latency budgets, and cost tracking across model providers.
+  links:
+    - label: GitHub
+      url: "#"
+
+- title: Conversational Support Agent
+  year: 2023
+  role: AI Engineer
+  stack: [Node.js, LangGraph, Redis, PostgreSQL]
+  summary: >-
+    Tool-using agent that triages tickets, drafts replies, and escalates with
+    full conversation memory and guardrails for PII.
+  links:
+    - label: Overview
+      url: "#"

@@ -1,0 +1,11 @@
+- title: Large Language Models
+  detail: Prompt systems, tool calling, agents, fine-tuning, and evaluation loops that survive production traffic.
+
+- title: Retrieval & Knowledge Systems
+  detail: Chunking strategies, hybrid search, reranking, and citation pipelines for trustworthy answers.
+
+- title: ML Systems Engineering
+  detail: Training pipelines, model serving, observability, cost controls, and CI for model + prompt changes.
+
+- title: Applied Deep Learning
+  detail: Computer vision, NLP, and multimodal models shipped behind APIs with clear quality metrics.

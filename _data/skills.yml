@@ -1,0 +1,19 @@
+languages:
+  - Python
+  - TypeScript
+  - SQL
+  - Bash
+
+frameworks:
+  - PyTorch
+  - Hugging Face
+  - LangChain / LangGraph
+  - FastAPI
+  - React
+
+infrastructure:
+  - Docker
+  - AWS / GCP
+  - Vector DBs
+  - CI/CD
+  - Observability

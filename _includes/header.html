@@ -1,0 +1,17 @@
+<header class="site-header" data-header>
+  <div class="site-header__inner">
+    <a class="logo" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+      <span class="sr-only">Menu</span>
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
+    </button>
+    <nav id="site-nav" class="site-nav" data-nav>
+      <ul class="site-nav__list">
+        {% for item in site.data.navigation %}
+          <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>

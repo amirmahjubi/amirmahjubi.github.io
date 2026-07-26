@@ -1,0 +1,46 @@
+title: Amir
+tagline: AI Engineer
+description: >-
+  Personal portfolio of an AI Engineer building reliable machine learning systems,
+  LLM applications, and production-grade AI products.
+author: Amir
+email: hello@example.com
+url: "https://amirmahjubi.com"
+baseurl: ""
+
+# Update these with your real profiles
+social:
+  github: amirm
+  linkedin: amirm
+  twitter: amirm
+  email: hello@example.com
+
+permalink: /:title/
+
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - README.md
+  - LICENSE
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+      comments: false
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: page
