@@ -347,7 +347,7 @@ a:hover {
   margin: 0 0 var(--space-3);
   max-width: 12ch;
   font-family: var(--font-display);
-  font-size: clamp(3.2rem, 10vw, 7.2rem);
+  font-size: clamp(2.6rem, 8vw, 5.5rem);
   font-weight: 800;
   line-height: 0.92;
   letter-spacing: -0.045em;
