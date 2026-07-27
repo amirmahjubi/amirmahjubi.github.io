@@ -4,24 +4,21 @@ description: >-
   Personal portfolio of Amir Mahjubi — AI Engineer building reliable machine learning systems,
   LLM applications, and production-grade AI products.
 author: Amir Mahjubi
-email: hello@example.com
+email: amirmahjubi@gmail.com
 url: "https://amirmahjubi.github.io"
 baseurl: ""
 portrait: /assets/images/amir-mahjubi.jpg
 
-# Update these with your real profiles
 social:
-  github: amirm
-  linkedin: amirm
-  twitter: amirm
-  email: hello@example.com
+  github: amirmahjubi
+  linkedin: amirmahjubi
+  email: amirmahjubi@gmail.com
 
 permalink: /:title/
 
 markdown: kramdown
 highlighter: rouge
 plugins:
-  - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
 
@@ -35,12 +32,6 @@ exclude:
   - images
 
 defaults:
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: post
-      comments: false
   - scope:
       path: ""
       type: "pages"
