@@ -150,7 +150,7 @@ a:hover {
   max-width: var(--max);
   height: 100%;
   margin: 0 auto;
-  padding: 0 var(--space-4);
+  padding: 0 max(var(--space-4), env(safe-area-inset-right)) 0 max(var(--space-4), env(safe-area-inset-left));
 }
 
 .logo {
@@ -269,7 +269,7 @@ a:hover {
   align-items: flex-end;
   min-height: 100vh;
   min-height: 100dvh;
-  padding: calc(var(--header-h) + var(--space-6)) var(--space-4) var(--space-7);
+  padding: calc(var(--header-h) + var(--space-6)) max(var(--space-4), env(safe-area-inset-right)) var(--space-7) max(var(--space-4), env(safe-area-inset-left));
   overflow: hidden;
 }
 
@@ -345,14 +345,15 @@ a:hover {
 
 .hero__brand {
   margin: 0 0 var(--space-3);
-  max-width: 12ch;
+  max-width: 14ch;
   font-family: var(--font-display);
-  font-size: clamp(2.6rem, 8vw, 5.5rem);
+  font-size: clamp(2.35rem, 7.5vw, 5.5rem);
   font-weight: 800;
-  line-height: 0.92;
+  line-height: 0.95;
   letter-spacing: -0.045em;
   color: var(--ink);
   text-wrap: balance;
+  overflow-wrap: anywhere;
 }
 
 .hero__brand .char {
@@ -1084,20 +1085,50 @@ a:hover {
   50% { opacity: 0.9; }
 }
 
-@media (max-width: 800px) {
-  .nav-toggle {
-    display: flex;
+@media (max-width: 900px) {
+  :root {
+    --header-h: 3.75rem;
+    --space-5: 2rem;
+    --space-6: 2.75rem;
+    --space-7: 4rem;
+  }
+
+  body {
+    font-size: 1rem;
+  }
+
+  .site-header__inner {
+    padding: 0 1.1rem;
+  }
+
+  .logo {
+    gap: 0.55rem;
+    max-width: calc(100% - 3.5rem);
+  }
+
+  .logo__img {
+    width: 1.85rem;
+    height: 1.85rem;
+    flex-shrink: 0;
   }
 
   .logo__text {
-    font-size: 0.95rem;
+    font-size: 0.92rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .nav-toggle {
+    display: flex;
+    flex-shrink: 0;
   }
 
   .site-nav {
     position: fixed;
     inset: var(--header-h) 0 auto;
     display: none;
-    padding: var(--space-4);
+    padding: 1.1rem;
     background: rgba(7, 13, 18, 0.96);
     border-bottom: 1px solid var(--line);
     backdrop-filter: blur(12px);
@@ -1109,37 +1140,154 @@ a:hover {
 
   .site-nav__list {
     flex-direction: column;
-    gap: var(--space-3);
+    gap: 0.85rem;
   }
 
   .site-nav a {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     color: var(--ink);
   }
 
   .hero {
-    align-items: flex-end;
-    padding-bottom: var(--space-6);
+    align-items: center;
+    justify-content: center;
+    min-height: 100svh;
+    min-height: 100dvh;
+    padding: calc(var(--header-h) + 1.5rem) 1.1rem 2.5rem;
   }
 
-  .hero__scroll {
+  .hero__inner {
+    width: 100%;
+  }
+
+  .hero__brand {
+    max-width: none;
+    font-size: clamp(2.1rem, 11vw, 3.4rem);
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    margin-bottom: 0.85rem;
+  }
+
+  .hero__brand .char {
+    transform: translateY(0.35em);
+  }
+
+  .hero__title {
+    max-width: none;
+    font-size: clamp(1.2rem, 5vw, 1.55rem);
+    margin-bottom: 1rem;
+  }
+
+  .hero__lede {
+    max-width: none;
+    font-size: 1rem;
+    line-height: 1.55;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero__actions {
+    gap: 0.75rem;
+  }
+
+  .hero__actions .btn {
+    flex: 1 1 auto;
+    min-width: min(100%, 10rem);
+    min-height: 2.65rem;
+    padding: 0.65rem 1.1rem;
+    font-size: 0.9rem;
+  }
+
+  .hero__scroll,
+  .cursor-glow,
+  .hero__orb {
     display: none;
   }
 
-  .cursor-glow {
-    display: none;
+  .section {
+    padding: 3.25rem 1.1rem;
+  }
+
+  .section__header {
+    margin-bottom: 2rem;
+  }
+
+  .section__title {
+    font-size: clamp(1.55rem, 6.5vw, 2.1rem);
+  }
+
+  .section__lede {
+    font-size: 1rem;
   }
 
   .project,
   .timeline__item {
     grid-template-columns: 1fr;
-    gap: var(--space-2);
+    gap: 0.65rem;
+    padding: 1.5rem 0;
+  }
+
+  .project:hover,
+  .post-list__link:hover {
+    padding-left: 0;
+  }
+
+  .project__title {
+    font-size: 1.2rem;
+  }
+
+  .project__summary,
+  .expertise-item__detail,
+  .timeline__highlights {
+    font-size: 0.95rem;
   }
 
   .expertise-list,
   .skills__grid,
   .certs__list {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .expertise-item__title,
+  .timeline__role {
+    font-size: 1.15rem;
+  }
+
+  .skills,
+  .certs {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+  }
+
+  .contact__title {
+    font-size: clamp(1.65rem, 7vw, 2.25rem);
+  }
+
+  .contact__lede {
+    font-size: 1rem;
+  }
+
+  .contact__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .contact__actions .btn {
+    width: 100%;
+  }
+
+  .site-footer {
+    padding: 2rem 1.1rem 2.5rem;
+  }
+
+  .page,
+  .post {
+    padding: calc(var(--header-h) + 2rem) 1.1rem 3.5rem;
+  }
+
+  .page__title,
+  .post__title {
+    font-size: clamp(1.75rem, 7vw, 2.35rem);
   }
 
   .post-list__link {
@@ -1152,6 +1300,63 @@ a:hover {
 
   .post-list__desc {
     grid-column: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --header-h: 3.5rem;
+  }
+
+  .hero {
+    align-items: flex-start;
+    justify-content: flex-start;
+    min-height: auto;
+    padding: calc(var(--header-h) + 1.75rem) 1rem 2.75rem;
+  }
+
+  .hero__brand {
+    font-size: clamp(1.95rem, 10.5vw, 2.6rem);
+  }
+
+  .hero__title {
+    font-size: 1.15rem;
+  }
+
+  .hero__lede {
+    font-size: 0.95rem;
+  }
+
+  .hero__actions {
+    flex-direction: column;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .section {
+    padding: 2.75rem 1rem;
+  }
+
+  .stack-list,
+  .link-row {
+    gap: 0.35rem 0.65rem;
+  }
+
+  .certs__list li {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-height: 720px) and (max-width: 900px) {
+  .hero {
+    align-items: flex-start;
+    justify-content: flex-start;
+    min-height: auto;
+    padding-top: calc(var(--header-h) + 1.25rem);
+    padding-bottom: 2rem;
   }
 }
 
