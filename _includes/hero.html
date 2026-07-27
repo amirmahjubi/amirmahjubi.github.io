@@ -6,7 +6,9 @@
   <div class="hero__grain" aria-hidden="true"></div>
 
   <div class="hero__inner">
-    <p class="hero__brand" data-split="{{ site.title }}">{{ site.title }}</p>
+    <p class="hero__brand" aria-label="{{ site.title }}">
+      <span class="hero__brand-word" data-split="Amir">Amir</span><span class="hero__brand-space"> </span><br class="hero__brand-break" aria-hidden="true"><span class="hero__brand-word" data-split="Mahjubi">Mahjubi</span>
+    </p>
     <h1 class="hero__title reveal" data-reveal>
       {{ site.tagline }}
     </h1>

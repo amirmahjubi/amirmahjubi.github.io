@@ -356,6 +356,18 @@ a:hover {
   overflow-wrap: anywhere;
 }
 
+.hero__brand-word {
+  display: inline;
+}
+
+.hero__brand-space {
+  display: inline;
+}
+
+.hero__brand-break {
+  display: none;
+}
+
 .hero__brand .char {
   display: inline-block;
   opacity: 0;
@@ -366,10 +378,6 @@ a:hover {
 .hero__brand.is-ready .char {
   opacity: 1;
   transform: none;
-}
-
-.hero__brand .char.is-space {
-  width: 0.28em;
 }
 
 .hero__title {
@@ -1163,16 +1171,21 @@ a:hover {
   .hero__brand {
     max-width: none;
     font-size: clamp(2.1rem, 11vw, 3.4rem);
-    line-height: 1.05;
+    line-height: 1.08;
     letter-spacing: -0.035em;
     margin-bottom: 0.85rem;
   }
 
-  .hero__brand .char.is-space {
+  .hero__brand-word {
+    display: inline-block;
+  }
+
+  .hero__brand-space {
+    display: none;
+  }
+
+  .hero__brand-break {
     display: block;
-    width: 100%;
-    height: 0;
-    overflow: hidden;
   }
 
   .hero__brand .char {

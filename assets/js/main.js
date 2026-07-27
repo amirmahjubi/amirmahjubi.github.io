@@ -34,22 +34,28 @@
   }
 
   /* Split brand letters for entrance */
-  var splitTarget = document.querySelector("[data-split]");
-  if (splitTarget) {
-    var text = splitTarget.getAttribute("data-split") || splitTarget.textContent || "";
-    splitTarget.textContent = "";
+  var brand = document.querySelector(".hero__brand");
+  var splitTargets = document.querySelectorAll("[data-split]");
+  if (splitTargets.length) {
     var delay = 0;
-    Array.prototype.forEach.call(text, function (ch) {
-      var span = document.createElement("span");
-      span.className = "char" + (ch === " " ? " is-space" : "");
-      span.textContent = ch === " " ? "\u00A0" : ch;
-      span.style.transitionDelay = delay + "s";
-      delay += 0.028;
-      splitTarget.appendChild(span);
+    splitTargets.forEach(function (splitTarget) {
+      var text = splitTarget.getAttribute("data-split") || splitTarget.textContent || "";
+      splitTarget.textContent = "";
+      Array.prototype.forEach.call(text, function (ch) {
+        var span = document.createElement("span");
+        span.className = "char";
+        span.textContent = ch;
+        span.style.transitionDelay = delay + "s";
+        delay += 0.028;
+        splitTarget.appendChild(span);
+      });
     });
     requestAnimationFrame(function () {
       requestAnimationFrame(function () {
-        splitTarget.classList.add("is-ready");
+        if (brand) brand.classList.add("is-ready");
+        splitTargets.forEach(function (el) {
+          el.classList.add("is-ready");
+        });
       });
     });
   }
