@@ -1168,6 +1168,13 @@ a:hover {
     margin-bottom: 0.85rem;
   }
 
+  .hero__brand .char.is-space {
+    display: block;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+  }
+
   .hero__brand .char {
     transform: translateY(0.35em);
   }
