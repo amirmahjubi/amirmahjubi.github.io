@@ -1,8 +1,8 @@
 title: Amir Mahjubi
 tagline: AI Engineer
 description: >-
-  Personal portfolio of Amir Mahjubi — AI Engineer building reliable machine learning systems,
-  LLM applications, and production-grade AI products.
+  Amir Mahjubi — AI Engineer and Computer Engineering graduate focused on machine learning,
+  deep learning, and large language models. Experience building and deploying scalable AI systems.
 author: Amir Mahjubi
 email: amirmahjubi@gmail.com
 url: "https://amirmahjubi.github.io"
@@ -30,6 +30,7 @@ exclude:
   - README.md
   - LICENSE
   - images
+  - data.md
 
 defaults:
   - scope:

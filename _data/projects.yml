@@ -1,47 +1,138 @@
-- title: Retrieval-Augmented Research Assistant
-  year: 2025
-  role: Lead AI Engineer
-  stack: [LangChain, OpenAI, FastAPI, Pinecone, React]
+- title: Smart Database Assistant
+  org: HezarGozar
+  role: AI Programmer
+  stack: [LLMs, NLP, SQL, Agents]
   summary: >-
-    Production RAG system that answers domain questions from private corpora
-    with citation-backed responses and eval-driven retrieval quality gates.
-  links:
-    - label: Case study
-      url: "#"
-    - label: GitHub
-      url: "#"
+    Built a tool that lets users query the database in natural language and get
+    answers grounded in the underlying data.
+  links: []
 
-- title: Multimodal Document Intelligence
-  year: 2024
-  role: ML Engineer
-  stack: [PyTorch, Vision Transformers, OCR, Hugging Face]
+- title: Smart Chart Assistant
+  org: HezarGozar
+  role: AI Programmer
+  stack: [LLMs, Vision, Analytics]
   summary: >-
-    End-to-end pipeline that extracts structured fields from scanned PDFs and
-    images, cutting manual review time by over 60%.
-  links:
-    - label: Demo
-      url: "#"
-    - label: Write-up
-      url: "#"
-
-- title: LLM Evaluation Harness
-  year: 2024
-  role: Solo builder
-  stack: [Python, pytest, OpenTelemetry, Streamlit]
-  summary: >-
-    Offline + online evaluation toolkit for prompt regressions, hallucination
-    checks, latency budgets, and cost tracking across model providers.
-  links:
-    - label: GitHub
-      url: "#"
-
-- title: Conversational Support Agent
-  year: 2023
-  role: AI Engineer
-  stack: [Node.js, LangGraph, Redis, PostgreSQL]
-  summary: >-
-    Tool-using agent that triages tickets, drafts replies, and escalates with
-    full conversation memory and guardrails for PII.
+    Chart Q&A assistant — users ask questions about a chart and the model
+    analyzes the visualization to respond.
   links:
     - label: Overview
-      url: "#"
+      url: https://drive.google.com/file/d/1KJtAtScbhUrDAlU86wzBq4fmFrZk4nnt/view?usp=sharing
+
+- title: TTS & STT Assistant
+  org: HezarGozar
+  role: AI Programmer
+  stack: [Speech, Fine-tuning, Persian NLP]
+  summary: >-
+    Fine-tuned Persian voice-to-text and text-to-voice assistants for production
+    conversational workflows.
+  links: []
+
+- title: Zhaav Pieces
+  org: HezarGozar
+  role: AI Programmer
+  stack: [MCP, Agents, Dashboard]
+  summary: >-
+    Dashboard based on MCP and agent-to-agent orchestration, built on an
+    open-source foundation for the Smart Assistant Zhaav ecosystem.
+  links: []
+
+- title: 5G Core AI Assistant
+  org: HezarGozar
+  role: AI Programmer
+  stack: [RAG, LLMs, Telecom]
+  summary: >-
+    Q&A assistant over EPC / 5GC core documentation so engineers can query
+    complex network knowledge in natural language.
+  links: []
+
+- title: Model Download & Inference Platform
+  org: Datoos Tech
+  role: AI Programmer
+  stack: [vLLM, LiteLLM, MLOps]
+  summary: >-
+    System to download open-source models and serve inference with vLLM and
+    LiteLLM for automated LLM workflows.
+  links: []
+
+- title: Gardeshyar Chatbot
+  org: Datoos Tech
+  role: AI Programmer
+  stack: [LangChain, LLMs, RAG]
+  summary: >-
+    Site chatbot for Gardeshyar that lets users ask questions and get guided
+    answers about the product.
+  links: []
+
+- title: LLM as Backend
+  org: Open source
+  role: Personal
+  stack: [Python, Prompt engineering, E-commerce]
+  summary: >-
+    Integrated an LLM assistant into an e-commerce backend with targeted prompt
+    engineering for product support flows.
+  links:
+    - label: GitHub
+      url: https://github.com/amirmahjubi/llm-as-backend-with-python
+
+- title: Llama Fine-Tuning
+  org: Research
+  role: Personal
+  stack: [Llama, Hugging Face, Fine-tuning]
+  summary: >-
+    Fine-tuned a Llama model on a public Hugging Face dataset, documented in an
+    end-to-end Colab notebook.
+  links:
+    - label: Colab
+      url: https://colab.research.google.com/drive/1lS89WoazHXs5rQo1KmpKGzfGf7In8Aty?usp=sharing
+
+- title: Chatbot with LangChain
+  org: Open source
+  role: Personal
+  stack: [LangChain, NLP, Python]
+  summary: >-
+    Conversational chatbot built with LangChain for NLP-driven Q&A workflows.
+  links:
+    - label: GitHub
+      url: https://github.com/amirmahjubi/chatbot-NLP
+
+- title: LLM in Logs
+  org: Open source
+  role: Personal
+  stack: [LLMs, Log analysis, Networking]
+  summary: >-
+    Uses an LLM to analyze network logs and produce actionable reports.
+  links:
+    - label: GitHub
+      url: https://github.com/amirmahjubi/LLM-in-logs
+
+- title: Sentiment Analysis with BERT
+  org: Open source
+  role: Personal
+  stack: [BERT, NLP, PyTorch]
+  summary: >-
+    Text sentiment analysis pipeline using BERT for classification.
+  links:
+    - label: GitHub
+      url: https://github.com/amirmahjubi/Sentiment_Ananalysis_with_Bert
+
+- title: Big Data Cleaning
+  org: Open source
+  role: Personal
+  stack: [NLP, Data cleaning, Python]
+  summary: >-
+    Focused on cleaning and preparing large-scale text datasets for downstream
+    NLP work.
+  links:
+    - label: GitHub
+      url: https://github.com/amirmahjubi/Big_Data_Cleaning-NLP
+
+- title: GPUs in LLMs — Industry Review
+  org: Research
+  role: Publication
+  stack: [LLMs, GPUs, Benchmarking]
+  summary: >-
+    Supervised article (University of Science and Research) reviewing GPUs,
+    benchmarking top brands, and their impact on large language model performance.
+  links:
+    - label: Article
+      url: https://drive.google.com/file/d/1e8AR9MVILnvgNwLwtAQhlEbsH_1knHQR/view?usp=sharing

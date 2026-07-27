@@ -1,11 +1,11 @@
 - title: Large Language Models
-  detail: Prompt systems, tool calling, agents, fine-tuning, and evaluation loops that survive production traffic.
+  detail: Prompt engineering, fine-tuning, LLM backends, and production assistants for real products.
 
-- title: Retrieval & Knowledge Systems
-  detail: Chunking strategies, hybrid search, reranking, and citation pipelines for trustworthy answers.
+- title: Agents & Multi-Agent Systems
+  detail: MCP, agent-to-agent orchestration, tool-using assistants, and chatbot workflows with LangChain.
 
-- title: ML Systems Engineering
-  detail: Training pipelines, model serving, observability, cost controls, and CI for model + prompt changes.
+- title: Speech & Multimodal AI
+  detail: Persian TTS/STT fine-tuning, chart understanding, and multimodal Hugging Face pipelines.
 
-- title: Applied Deep Learning
-  detail: Computer vision, NLP, and multimodal models shipped behind APIs with clear quality metrics.
+- title: MLOps & Serving
+  detail: FastAPI deployment, Docker, vLLM/LiteLLM inference, Airflow, and observability with Prometheus/Grafana.

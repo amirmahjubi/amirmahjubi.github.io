@@ -1,0 +1,27 @@
+<section class="section section--alt" id="education">
+  <div class="section__inner">
+    <header class="section__header reveal" data-reveal>
+      <p class="eyebrow">Education</p>
+      <h2 class="section__title">Academic path</h2>
+      <p class="section__lede">Computer engineering foundation with a focus on software and AI.</p>
+    </header>
+
+    <ol class="timeline">
+      {% for item in site.data.education %}
+        <li class="timeline__item reveal" data-reveal>
+          <div class="timeline__when">
+            <p class="timeline__period">{{ item.period }}</p>
+            <p class="timeline__location">{{ item.location }}</p>
+          </div>
+          <div class="timeline__what">
+            <h3 class="timeline__role">{{ item.degree }}</h3>
+            <p class="timeline__company">{{ item.school }}</p>
+            {% if item.detail %}
+              <p class="education__detail">{{ item.detail }}</p>
+            {% endif %}
+          </div>
+        </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>

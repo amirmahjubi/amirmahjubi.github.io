@@ -3,13 +3,16 @@
     <p class="eyebrow">Contact</p>
     <h2 class="contact__title">Let’s build something reliable</h2>
     <p class="contact__lede">
-      Open to AI engineering roles, consulting, and collaborations on LLM systems,
-      retrieval, and applied ML.
+      Based in Tehran — open to AI engineering roles and collaborations on LLMs,
+      agents, RAG, and production ML systems.
     </p>
     <div class="contact__actions">
       <a class="btn btn--primary" href="mailto:{{ site.social.email }}" data-magnetic>{{ site.social.email }}</a>
       {% if site.social.linkedin %}
         <a class="btn btn--ghost" href="https://www.linkedin.com/in/{{ site.social.linkedin }}" rel="me noopener" target="_blank" data-magnetic>LinkedIn</a>
+      {% endif %}
+      {% if site.social.github %}
+        <a class="btn btn--ghost" href="https://github.com/{{ site.social.github }}" rel="me noopener" target="_blank" data-magnetic>GitHub</a>
       {% endif %}
     </div>
   </div>

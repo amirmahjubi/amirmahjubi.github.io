@@ -3,7 +3,7 @@
     <header class="section__header reveal" data-reveal>
       <p class="eyebrow">Expertise</p>
       <h2 class="section__title">Where I focus</h2>
-      <p class="section__lede">Applied AI with an engineering spine — quality, latency, and operability included.</p>
+      <p class="section__lede">Hands-on AI engineering — LLMs, agents, speech, and systems that ship.</p>
     </header>
 
     <ul class="expertise-list">
@@ -32,5 +32,16 @@
         </div>
       </div>
     </div>
+
+    {% if site.data.certificates.size > 0 %}
+      <div class="certs reveal" data-reveal>
+        <h3 class="skills__title">Certificates · DataCamp</h3>
+        <ul class="certs__list">
+          {% for cert in site.data.certificates %}
+            <li>{{ cert }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
   </div>
 </section>

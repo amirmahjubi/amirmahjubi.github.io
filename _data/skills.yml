@@ -1,19 +1,17 @@
 languages:
   - Python
-  - TypeScript
   - SQL
-  - Bash
 
 frameworks:
-  - PyTorch
-  - Hugging Face
-  - LangChain / LangGraph
+  - PyTorch / TensorFlow / Keras
+  - LangChain
+  - Hugging Face / Ollama
+  - LLMs · NLP · RAG · Agents
   - FastAPI
-  - React
 
 infrastructure:
-  - Docker
-  - AWS / GCP
-  - Vector DBs
-  - CI/CD
-  - Observability
+  - Docker · Linux · MLOps
+  - Apache Airflow
+  - Vector DBs · Redis
+  - Git
+  - Prometheus / Grafana

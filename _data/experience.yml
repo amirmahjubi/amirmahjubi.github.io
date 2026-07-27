@@ -1,25 +1,17 @@
-- company: Horizon AI
-  role: AI Engineer
-  period: 2024 — Present
-  location: Remote
+- company: Tose’e Tejarat HezarGozar
+  role: AI Programmer
+  period: Tehran
+  location: Iran
   highlights:
-    - Shipped RAG features used by 40k+ monthly active users.
-    - Built evaluation suites that reduced hallucination regressions before release.
-    - Partnered with product to turn research prototypes into reliable services.
+    - Built Smart Assistant Zhaav and related multi-agent workflows.
+    - Developed TTS & STT assistants with fine-tuned Persian speech models.
+    - Shipped database, chart, 5G-core, and MCP/agent dashboard assistants for production use.
 
-- company: Signal Labs
-  role: Machine Learning Engineer
-  period: 2022 — 2024
-  location: Hybrid
+- company: Datoos Tech
+  role: AI Programmer
+  period: Dubai
+  location: United Arab Emirates
   highlights:
-    - Owned document understanding models from data collection through deployment.
-    - Cut inference cost 35% with quantization and batching without quality loss.
-    - Mentored juniors on experiment tracking and reproducible training.
-
-- company: Independent
-  role: ML Consultant
-  period: 2021 — 2022
-  location: Freelance
-  highlights:
-    - Delivered PoCs for startups exploring LLM workflows and automation.
-    - Designed data labeling plans and baseline models for early product validation.
+    - Built the Gardeshyar site chatbot for customer Q&A.
+    - Developed an LLM automation pipeline for downloading and serving open-source models.
+    - Ran inference with vLLM and LiteLLM for production model serving.
