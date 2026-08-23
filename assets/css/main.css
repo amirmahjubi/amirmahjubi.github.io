@@ -442,14 +442,13 @@ main {
 
 .hero__brand .char {
   display: inline-block;
-  opacity: 0;
-  transform: translateY(0.5em) rotate(8deg) scale(0.8);
   transition: opacity 0.5s var(--spring), transform 0.5s var(--spring);
 }
 
-.hero__brand-word.is-ready .char {
-  opacity: 1;
-  transform: none;
+/* Hidden entrance state only when JS is actually running */
+html.js .hero__brand-word:not(.is-ready) .char {
+  opacity: 0;
+  transform: translateY(0.5em) rotate(8deg) scale(0.8);
 }
 
 .hero__brand .char:hover {
@@ -1180,36 +1179,22 @@ body.is-warping {
   background: var(--space-3);
 }
 
-/* ---------- Reveal motion ---------- */
+/* ---------- Reveal motion (progressive enhancement) ----------
+   Content is fully visible by default; the hidden entrance state
+   only applies when JS is running (html.js) and before .is-visible. */
 .reveal {
-  opacity: 0;
-  transform: translateY(1.6rem) scale(0.96) rotate(-0.5deg);
   transition: opacity 0.65s var(--spring), transform 0.65s var(--spring);
 }
 
-.reveal.is-visible {
-  opacity: 1;
-  transform: none;
+html.js .reveal:not(.is-visible) {
+  opacity: 0;
+  transform: translateY(1.6rem) scale(0.96) rotate(-0.5deg);
 }
 
-.panel-grid > .panel.reveal:not(.is-visible),
-.power.reveal:not(.is-visible) {
+html.js .panel-grid > .panel.reveal:not(.is-visible),
+html.js .power.reveal:not(.is-visible) {
   opacity: 0;
   transform: translateY(1.6rem) scale(0.96);
-}
-
-.panel-grid > .panel.reveal.is-visible:nth-child(odd) { transform: rotate(-0.8deg); }
-.panel-grid > .panel.reveal.is-visible:nth-child(even) { transform: rotate(0.8deg); }
-.panel-grid > .panel.reveal.is-visible:nth-child(odd):hover,
-.panel-grid > .panel.reveal.is-visible:nth-child(even):hover {
-  transform: rotate(0deg) translateY(-6px) scale(1.015);
-}
-
-.power.reveal.is-visible:nth-child(odd) { transform: rotate(-0.6deg); }
-.power.reveal.is-visible:nth-child(even) { transform: rotate(0.6deg); }
-.power.reveal.is-visible:nth-child(odd):hover,
-.power.reveal.is-visible:nth-child(even):hover {
-  transform: translateY(-5px);
 }
 
 /* ---------- Keyframes ---------- */
@@ -1451,7 +1436,11 @@ body.is-warping {
   }
 
   .reveal,
-  .hero__brand .char {
+  .hero__brand .char,
+  html.js .reveal:not(.is-visible),
+  html.js .hero__brand-word:not(.is-ready) .char,
+  html.js .panel-grid > .panel.reveal:not(.is-visible),
+  html.js .power.reveal:not(.is-visible) {
     opacity: 1;
     transform: none;
     transition: none;
