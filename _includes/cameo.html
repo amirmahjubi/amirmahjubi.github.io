@@ -1,0 +1,12 @@
+<div class="cameo{% if include.class %} {{ include.class }}{% endif %}" tabindex="0" aria-label="{{ include.alt }} says: {{ include.quote }}">
+  <img
+    class="cameo__img"
+    src="{{ '/assets/images/cameos/' | append: include.img | append: '.jpeg' | relative_url }}"
+    alt="{{ include.alt }}"
+    width="92"
+    height="92"
+    {% unless include.eager %}loading="lazy"{% endunless %}
+    decoding="async"
+  >
+  <span class="cameo__bubble" aria-hidden="true">{{ include.quote }}</span>
+</div>

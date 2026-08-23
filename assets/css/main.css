@@ -680,8 +680,119 @@ body.is-warping {
 }
 
 .section__inner {
+  position: relative;
   max-width: var(--max);
   margin: 0 auto;
+}
+
+/* ---------- Character cameos ---------- */
+.cameo {
+  position: absolute;
+  top: -0.5rem;
+  right: 0;
+  z-index: 3;
+  width: 92px;
+  cursor: help;
+}
+
+.cameo__img {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: var(--border) solid var(--outline);
+  box-shadow: 4px 4px 0 var(--outline), 0 0 20px rgba(151, 206, 76, 0.35);
+  background: var(--paper);
+  transform: rotate(6deg);
+  transition: transform 0.3s var(--spring);
+  animation: float-slow 6s ease-in-out infinite alternate;
+}
+
+.cameo:hover .cameo__img,
+.cameo:focus-visible .cameo__img {
+  transform: rotate(-5deg) scale(1.12);
+  animation-play-state: paused;
+}
+
+.cameo__bubble {
+  position: absolute;
+  bottom: calc(100% + 16px);
+  right: 30%;
+  min-width: 175px;
+  max-width: 230px;
+  padding: 0.55rem 0.8rem 0.45rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--ink);
+  background: var(--paper);
+  border: var(--border) solid var(--outline);
+  border-radius: 14px;
+  box-shadow: 4px 4px 0 var(--outline);
+  opacity: 0;
+  transform: translateY(8px) scale(0.85);
+  transform-origin: bottom right;
+  transition: opacity 0.25s ease, transform 0.25s var(--spring);
+  pointer-events: none;
+}
+
+.cameo__bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -13px;
+  right: 18%;
+  width: 20px;
+  height: 20px;
+  background: var(--paper);
+  border: var(--border) solid var(--outline);
+  border-top: 0;
+  border-left: 0;
+  transform: rotate(45deg) skew(8deg, 8deg);
+}
+
+.cameo:hover .cameo__bubble,
+.cameo:focus-visible .cameo__bubble,
+.cameo:focus-within .cameo__bubble {
+  opacity: 1;
+  transform: none;
+}
+
+/* Hero duo peeking around the portal */
+.cameo--rick {
+  top: -6%;
+  right: -4%;
+  left: auto;
+}
+
+.cameo--rick .cameo__img {
+  transform: rotate(10deg);
+}
+
+.cameo--morty {
+  top: auto;
+  bottom: 2%;
+  left: -6%;
+  right: auto;
+  width: 76px;
+}
+
+.cameo--morty .cameo__img {
+  width: 76px;
+  height: 76px;
+  transform: rotate(-8deg);
+  animation-delay: -3s;
+}
+
+.cameo--morty .cameo__bubble {
+  right: auto;
+  left: 30%;
+  transform-origin: bottom left;
+}
+
+.cameo--morty .cameo__bubble::after {
+  right: auto;
+  left: 18%;
+  transform: rotate(135deg) skew(8deg, 8deg);
 }
 
 .section__header {
@@ -1343,6 +1454,39 @@ html.js .power.reveal:not(.is-visible) {
     margin-bottom: 2.25rem;
   }
 
+  .cameo {
+    width: 60px;
+    top: -0.75rem;
+  }
+
+  .cameo__img {
+    width: 60px;
+    height: 60px;
+    box-shadow: 3px 3px 0 var(--outline), 0 0 14px rgba(151, 206, 76, 0.3);
+  }
+
+  .cameo__bubble {
+    min-width: 145px;
+    max-width: 180px;
+    font-size: 0.78rem;
+  }
+
+  .cameo--rick {
+    top: -4%;
+    right: 0;
+  }
+
+  .cameo--morty {
+    width: 52px;
+    bottom: 0;
+    left: 0;
+  }
+
+  .cameo--morty .cameo__img {
+    width: 52px;
+    height: 52px;
+  }
+
   .panel-grid {
     grid-template-columns: 1fr;
     gap: 2.25rem;
@@ -1453,7 +1597,8 @@ html.js .power.reveal:not(.is-visible) {
   .logo__img,
   .hero__planet,
   .hero__zap,
-  .hero__scroll {
+  .hero__scroll,
+  .cameo__img {
     animation: none !important;
   }
 
