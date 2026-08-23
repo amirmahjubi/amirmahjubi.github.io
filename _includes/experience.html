@@ -1,22 +1,22 @@
 <section class="section" id="experience">
   <div class="section__inner">
     <header class="section__header reveal" data-reveal>
-      <p class="eyebrow">Experience</p>
-      <h2 class="section__title">Path so far</h2>
-      <p class="section__lede">AI programming roles building assistants, agents, and LLM automation.</p>
+      <span class="sticker sticker--blue">Chapter 03</span>
+      <h2 class="section__title">Previously On…</h2>
+      <p class="section__lede bubble bubble--lede">AI programming roles building assistants, agents, and LLM automation.</p>
     </header>
 
-    <ol class="timeline">
+    <ol class="strip">
       {% for job in site.data.experience %}
-        <li class="timeline__item reveal" data-reveal>
-          <div class="timeline__when">
-            <p class="timeline__period">{{ job.period }}</p>
-            <p class="timeline__location">{{ job.location }}</p>
-          </div>
-          <div class="timeline__what">
-            <h3 class="timeline__role">{{ job.role }}</h3>
-            <p class="timeline__company">{{ job.company }}</p>
-            <ul class="timeline__highlights">
+        <li class="strip__item reveal" data-reveal>
+          <div class="strip__marker" aria-hidden="true"><span></span></div>
+          <div class="strip__panel panel" data-tilt>
+            <div class="panel__meta">
+              <span class="panel__org">{{ job.period }} · {{ job.location }}</span>
+            </div>
+            <h3 class="panel__title">{{ job.role }}</h3>
+            <p class="strip__company">{{ job.company }}</p>
+            <ul class="strip__highlights">
               {% for point in job.highlights %}
                 <li>{{ point }}</li>
               {% endfor %}

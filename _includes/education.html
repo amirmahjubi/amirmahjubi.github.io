@@ -1,23 +1,23 @@
 <section class="section section--alt" id="education">
   <div class="section__inner">
     <header class="section__header reveal" data-reveal>
-      <p class="eyebrow">Education</p>
-      <h2 class="section__title">Academic path</h2>
-      <p class="section__lede">Computer engineering foundation with a focus on software and AI.</p>
+      <span class="sticker sticker--yellow">Chapter 04</span>
+      <h2 class="section__title">Origin Story</h2>
+      <p class="section__lede bubble bubble--lede">Computer engineering foundation with a focus on software and AI.</p>
     </header>
 
-    <ol class="timeline">
+    <ol class="strip">
       {% for item in site.data.education %}
-        <li class="timeline__item reveal" data-reveal>
-          <div class="timeline__when">
-            <p class="timeline__period">{{ item.period }}</p>
-            <p class="timeline__location">{{ item.location }}</p>
-          </div>
-          <div class="timeline__what">
-            <h3 class="timeline__role">{{ item.degree }}</h3>
-            <p class="timeline__company">{{ item.school }}</p>
+        <li class="strip__item reveal" data-reveal>
+          <div class="strip__marker" aria-hidden="true"><span></span></div>
+          <div class="strip__panel panel" data-tilt>
+            <div class="panel__meta">
+              <span class="panel__org">{{ item.period }} · {{ item.location }}</span>
+            </div>
+            <h3 class="panel__title">{{ item.degree }}</h3>
+            <p class="strip__company">{{ item.school }}</p>
             {% if item.detail %}
-              <p class="education__detail">{{ item.detail }}</p>
+              <p class="strip__detail">{{ item.detail }}</p>
             {% endif %}
           </div>
         </li>

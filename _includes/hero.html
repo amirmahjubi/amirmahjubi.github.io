@@ -1,24 +1,47 @@
 <section class="hero" aria-label="Introduction" data-hero>
-  <div class="hero__atmosphere" aria-hidden="true"></div>
-  <div class="hero__grid" aria-hidden="true"></div>
-  <div class="hero__orb hero__orb--one" aria-hidden="true"></div>
-  <div class="hero__orb hero__orb--two" aria-hidden="true"></div>
-  <div class="hero__grain" aria-hidden="true"></div>
+  <div class="hero__space" aria-hidden="true">
+    <span class="hero__planet hero__planet--one"></span>
+    <span class="hero__planet hero__planet--two"></span>
+    <span class="hero__zap hero__zap--one">✦</span>
+    <span class="hero__zap hero__zap--two">✧</span>
+    <span class="hero__zap hero__zap--three">✦</span>
+  </div>
 
   <div class="hero__inner">
-    <p class="hero__brand" aria-label="{{ site.title }}">
-      <span class="hero__brand-word" data-split="Amir">Amir</span><span class="hero__brand-space"> </span><br class="hero__brand-break" aria-hidden="true"><span class="hero__brand-word" data-split="Mahjubi">Mahjubi</span>
-    </p>
-    <h1 class="hero__title reveal" data-reveal>
-      {{ site.tagline }}
-    </h1>
-    <p class="hero__lede reveal" data-reveal>
-      I design and ship machine learning systems — from retrieval pipelines
-      and agent workflows to models that hold up in production.
-    </p>
-    <div class="hero__actions reveal" data-reveal>
-      <a class="btn btn--primary" href="{{ '/#work' | relative_url }}" data-magnetic>View selected work</a>
-      <a class="btn btn--ghost" href="{{ '/#contact' | relative_url }}" data-magnetic>Get in touch</a>
+    <div class="hero__copy">
+      <span class="hero__issue sticker sticker--yellow reveal" data-reveal>Portfolio · Issue #01</span>
+
+      <p class="hero__brand" aria-label="{{ site.title }}">
+        <span class="hero__brand-word" data-split="Amir">Amir</span><span class="hero__brand-space"> </span><br class="hero__brand-break" aria-hidden="true"><span class="hero__brand-word" data-split="Mahjubi">Mahjubi</span>
+      </p>
+
+      <h1 class="hero__title reveal" data-reveal>
+        <span class="hero__title-badge">{{ site.tagline }}</span>
+      </h1>
+
+      <div class="bubble bubble--hero reveal" data-reveal>
+        <p>
+          I design and ship machine learning systems — from retrieval pipelines
+          and agent workflows to models that hold up in production.
+        </p>
+      </div>
+
+      <div class="hero__actions reveal" data-reveal>
+        <a class="btn btn--primary" href="{{ '/#work' | relative_url }}" data-magnetic>View selected work</a>
+        <a class="btn btn--ghost" href="{{ '/#contact' | relative_url }}" data-magnetic>Get in touch</a>
+      </div>
+    </div>
+
+    <div class="hero__portal-wrap reveal" data-reveal>
+      <button class="portal" type="button" data-portal aria-label="Jump through the portal to selected work">
+        <span class="portal__ring portal__ring--outer" aria-hidden="true"></span>
+        <span class="portal__ring portal__ring--mid" aria-hidden="true"></span>
+        <span class="portal__ring portal__ring--inner" aria-hidden="true"></span>
+        <span class="portal__core" aria-hidden="true"></span>
+        <img class="portal__photo" src="{{ site.portrait | relative_url }}" alt="Portrait of {{ site.author }}" width="360" height="360" fetchpriority="high" decoding="async">
+        <span class="portal__hint" aria-hidden="true">Enter&nbsp;→</span>
+      </button>
+      <span class="hero__caption" aria-hidden="true">* engineer from dimension C-137’s job market</span>
     </div>
   </div>
 
