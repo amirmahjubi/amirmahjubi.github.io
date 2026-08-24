@@ -666,6 +666,24 @@ body.is-warping {
   border-bottom-color: var(--pink);
 }
 
+.inline-ext {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.18em;
+  text-decoration-color: var(--portal);
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.inline-ext:hover {
+  color: var(--portal-bright);
+  text-decoration-color: var(--portal-bright);
+}
+
+.panel__title .inline-ext {
+  color: inherit;
+}
+
 /* ---------- Sections ---------- */
 .section {
   position: relative;
@@ -693,6 +711,12 @@ body.is-warping {
   z-index: 3;
   width: 92px;
   cursor: help;
+}
+
+.cameo:hover,
+.cameo:focus-visible,
+.cameo:focus-within {
+  z-index: 20;
 }
 
 .cameo__img {
@@ -1117,7 +1141,8 @@ body.is-warping {
 
 /* ---------- Contact ---------- */
 .contact {
-  overflow: hidden;
+  overflow: visible;
+  z-index: 2;
 }
 
 .contact::before {
@@ -1208,6 +1233,84 @@ body.is-warping {
   margin: 0;
   font-size: 0.85rem;
   color: rgba(255, 253, 245, 0.5);
+}
+
+/* ---------- Back to top (mini portal) ---------- */
+.to-top {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  z-index: 60;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(10px) scale(0.85);
+  pointer-events: none;
+  transition: opacity 0.22s ease, transform 0.22s var(--spring);
+}
+
+.to-top.is-visible {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.to-top__ring,
+.to-top__core {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.to-top__ring--outer {
+  background: conic-gradient(from 0deg, var(--portal-bright), var(--portal-deep) 30%, var(--portal) 55%, var(--portal-bright) 75%, var(--portal-deep));
+  filter: blur(2px);
+  animation: portal-spin 5s linear infinite;
+}
+
+.to-top__ring--mid {
+  inset: 12%;
+  background: conic-gradient(from 160deg, var(--portal-deep), var(--portal-bright) 45%, var(--portal) 75%, var(--portal-deep));
+  filter: blur(1px);
+  animation: portal-spin 3.5s linear infinite reverse;
+}
+
+.to-top__core {
+  inset: 24%;
+  background: radial-gradient(circle, #eaffd0 0%, var(--portal-bright) 50%, var(--portal) 100%);
+  border: 2px solid var(--outline);
+  box-shadow: 2px 2px 0 var(--outline), 0 0 16px rgba(151, 206, 76, 0.55);
+}
+
+.to-top__arrow {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  line-height: 1;
+  color: var(--outline);
+  text-shadow: 0 1px 0 rgba(255, 253, 245, 0.35);
+}
+
+.to-top:hover {
+  transform: scale(1.08);
+}
+
+.to-top:hover .to-top__arrow {
+  color: var(--ink);
+}
+
+.to-top:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 3px;
 }
 
 /* ---------- Pages (fallback for any inner pages) ---------- */
@@ -1420,7 +1523,7 @@ html.js .power.reveal:not(.is-visible) {
 
   .cameo {
     width: 60px;
-    top: -0.75rem;
+    top: 0.15rem;
   }
 
   .cameo__img {
@@ -1429,19 +1532,45 @@ html.js .power.reveal:not(.is-visible) {
     box-shadow: 3px 3px 0 var(--outline), 0 0 14px rgba(151, 206, 76, 0.3);
   }
 
+  /* Keep speech bubbles under the character on mobile so they
+     don't slide under the fixed header or the section above. */
   .cameo__bubble {
+    top: calc(100% + 12px);
+    bottom: auto;
+    right: 0;
+    left: auto;
     min-width: 145px;
-    max-width: 180px;
+    max-width: min(180px, 70vw);
     font-size: 0.78rem;
+    transform: translateY(-8px) scale(0.85);
+    transform-origin: top right;
+  }
+
+  .cameo__bubble::after {
+    top: -13px;
+    bottom: auto;
+    right: 18%;
+    border: var(--border) solid var(--outline);
+    border-bottom: 0;
+    border-right: 0;
+    transform: rotate(45deg) skew(8deg, 8deg);
+  }
+
+  .cameo:hover .cameo__bubble,
+  .cameo:focus-visible .cameo__bubble,
+  .cameo:focus-within .cameo__bubble {
+    transform: none;
   }
 
   .cameo--rick {
-    top: -4%;
+    top: auto;
+    bottom: 8%;
     right: 0;
   }
 
   .cameo--morty {
     width: 52px;
+    top: auto;
     bottom: 0;
     left: 0;
   }
@@ -1449,6 +1578,45 @@ html.js .power.reveal:not(.is-visible) {
   .cameo--morty .cameo__img {
     width: 52px;
     height: 52px;
+  }
+
+  .cameo--morty .cameo__bubble {
+    right: auto;
+    left: 0;
+    transform-origin: top left;
+  }
+
+  .cameo--morty .cameo__bubble::after {
+    right: auto;
+    left: 18%;
+  }
+
+  .hero {
+    overflow: visible;
+  }
+
+  .hero__portal-wrap {
+    overflow: visible;
+    z-index: 4;
+  }
+
+  .section__inner {
+    z-index: 1;
+  }
+
+  .contact {
+    z-index: 4;
+  }
+
+  .to-top {
+    width: 2.65rem;
+    height: 2.65rem;
+    right: max(0.85rem, env(safe-area-inset-right));
+    bottom: max(0.85rem, env(safe-area-inset-bottom));
+  }
+
+  .to-top__arrow {
+    font-size: 0.95rem;
   }
 
   .panel-grid {
@@ -1551,6 +1719,8 @@ html.js .power.reveal:not(.is-visible) {
   .portal__ring--outer,
   .portal__ring--mid,
   .portal__ring--inner,
+  .to-top__ring--outer,
+  .to-top__ring--mid,
   .logo__portal,
   .logo__img,
   .hero__planet,

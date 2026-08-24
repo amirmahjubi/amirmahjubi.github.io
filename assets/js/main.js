@@ -236,4 +236,21 @@
       }
     });
   }
+
+  /* ---------- Back to top (mini portal) ---------- */
+  var toTop = document.querySelector("[data-to-top]");
+  if (toTop) {
+    function syncToTop() {
+      var show = (window.scrollY || window.pageYOffset) > 420;
+      toTop.hidden = !show;
+      toTop.classList.toggle("is-visible", show);
+    }
+
+    syncToTop();
+    window.addEventListener("scroll", syncToTop, { passive: true });
+
+    toTop.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+    });
+  }
 })();

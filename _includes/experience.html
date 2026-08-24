@@ -19,7 +19,7 @@
             <p class="strip__company">{{ job.company }}</p>
             <ul class="strip__highlights">
               {% for point in job.highlights %}
-                <li>{{ point }}</li>
+                <li>{{ point | replace: 'Gardeshyar', '<a class="inline-ext" href="https://gardeshyar.com/" rel="noopener" target="_blank">Gardeshyar</a>' }}</li>
               {% endfor %}
             </ul>
           </div>

@@ -14,8 +14,8 @@
             <span class="panel__org">{{ project.org }}</span>
             <span class="panel__role">{{ project.role }}</span>
           </div>
-          <h3 class="panel__title">{{ project.title }}</h3>
-          <p class="panel__summary">{{ project.summary }}</p>
+          <h3 class="panel__title">{{ project.title | replace: 'Gardeshyar', '<a class="inline-ext" href="https://gardeshyar.com/" rel="noopener" target="_blank">Gardeshyar</a>' }}</h3>
+          <p class="panel__summary">{{ project.summary | replace: 'Gardeshyar', '<a class="inline-ext" href="https://gardeshyar.com/" rel="noopener" target="_blank">Gardeshyar</a>' }}</p>
           {% if project.stack and project.stack.size > 0 %}
             <ul class="stack-list" aria-label="Tech stack">
               {% for item in project.stack %}

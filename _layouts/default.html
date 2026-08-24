@@ -10,6 +10,12 @@
       {{ content }}
     </main>
     {% include footer.html %}
+    <button class="to-top" type="button" data-to-top aria-label="Back to top" hidden>
+      <span class="to-top__ring to-top__ring--outer" aria-hidden="true"></span>
+      <span class="to-top__ring to-top__ring--mid" aria-hidden="true"></span>
+      <span class="to-top__core" aria-hidden="true"></span>
+      <span class="to-top__arrow" aria-hidden="true">↑</span>
+    </button>
     <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
   </body>
 </html>
