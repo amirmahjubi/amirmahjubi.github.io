@@ -547,7 +547,7 @@ html.js .hero__brand-word:not(.is-ready) .char {
   height: 54%;
   border-radius: 50%;
   object-fit: cover;
-  object-position: center 32%;
+  object-position: center;
   border: var(--border) solid var(--outline);
   filter: saturate(1.05) contrast(1.05);
   transition: transform 0.4s var(--spring);
