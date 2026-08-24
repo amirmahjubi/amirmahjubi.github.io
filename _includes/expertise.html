@@ -1,15 +1,15 @@
 <section class="section section--alt" id="expertise">
   <div class="section__inner">
+    {% include cameo.html img="meeseeks" alt="Mr. Meeseeks" quote="I'm Mr. Meeseeks! Look at these skills!" %}
     <header class="section__header reveal" data-reveal>
-      <span class="file-tag">Case File 02</span>
+      <span class="sticker sticker--pink">Chapter 02</span>
       <h2 class="section__title">Where I Focus</h2>
-      <p class="section__lede">Hands-on AI engineering — LLMs, agents, speech, and systems that ship.</p>
+      <p class="section__lede bubble bubble--lede">Hands-on AI engineering — LLMs, agents, speech, and systems that ship.</p>
     </header>
 
     <ul class="power-grid">
       {% for item in site.data.expertise %}
         <li class="power reveal" data-reveal data-tilt>
-          <span class="power__level" aria-hidden="true">0{{ forloop.index }}</span>
           <h3 class="power__title">{{ item.title }}</h3>
           <p class="power__detail">{{ item.detail }}</p>
         </li>
@@ -17,10 +17,7 @@
     </ul>
 
     <div class="inventory reveal" data-reveal>
-      <div class="inventory__ornament" aria-hidden="true">
-        <img src="{{ '/assets/images/gotham/ornament.jpg' | relative_url }}" alt="" width="120" height="120" loading="lazy" decoding="async">
-      </div>
-      <h3 class="inventory__title">Toolkit</h3>
+      <h3 class="inventory__title">Inventory <span aria-hidden="true">🎒</span></h3>
       <div class="inventory__grid">
         <div class="inventory__slot">
           <p class="inventory__label">Languages</p>
@@ -39,7 +36,7 @@
 
     {% if site.data.certificates.size > 0 %}
       <div class="certs reveal" data-reveal>
-        <h3 class="inventory__title">Credentials · DataCamp</h3>
+        <h3 class="inventory__title">Achievements Unlocked · DataCamp</h3>
         <ul class="certs__list">
           {% for cert in site.data.certificates %}
             <li>{{ cert }}</li>

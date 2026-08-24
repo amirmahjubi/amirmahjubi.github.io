@@ -1,13 +1,15 @@
 <section class="hero" aria-label="Introduction" data-hero>
-  <div class="hero__skyline" aria-hidden="true">
-    <img src="{{ '/assets/images/gotham/skyline.jpg' | relative_url }}" alt="" width="1600" height="900" decoding="async">
+  <div class="hero__space" aria-hidden="true">
+    <span class="hero__planet hero__planet--one"></span>
+    <span class="hero__planet hero__planet--two"></span>
+    <span class="hero__zap hero__zap--one">✦</span>
+    <span class="hero__zap hero__zap--two">✧</span>
+    <span class="hero__zap hero__zap--three">✦</span>
   </div>
-  <div class="hero__searchlight" aria-hidden="true"></div>
-  <div class="hero__blinds" aria-hidden="true"></div>
 
   <div class="hero__inner">
     <div class="hero__copy">
-      <span class="file-tag reveal" data-reveal>Gotham File · 01</span>
+      <span class="hero__issue sticker sticker--yellow reveal" data-reveal>Portfolio · Issue #01</span>
 
       <p class="hero__brand" aria-label="{{ site.title }}">
         <span class="hero__brand-word" data-split="Amir">Amir</span><span class="hero__brand-space"> </span><br class="hero__brand-break" aria-hidden="true"><span class="hero__brand-word" data-split="Mahjubi">Mahjubi</span>
@@ -17,26 +19,31 @@
         <span class="hero__title-badge">{{ site.tagline }}</span>
       </h1>
 
-      <p class="hero__lede reveal" data-reveal>
-        I design and ship machine learning systems — retrieval pipelines,
-        agent workflows, and models that hold up after midnight in production.
-      </p>
+      <div class="bubble bubble--hero reveal" data-reveal>
+        <p>
+          I design and ship machine learning systems — from retrieval pipelines
+          and agent workflows to models that hold up in production.
+        </p>
+      </div>
 
       <div class="hero__actions reveal" data-reveal>
-        <a class="btn btn--primary" href="{{ '/#work' | relative_url }}" data-magnetic>Open the case files</a>
-        <a class="btn btn--ghost" href="{{ '/#contact' | relative_url }}" data-magnetic>Send a signal</a>
+        <a class="btn btn--primary" href="{{ '/#work' | relative_url }}" data-magnetic>View selected work</a>
+        <a class="btn btn--ghost" href="{{ '/#contact' | relative_url }}" data-magnetic>Get in touch</a>
       </div>
     </div>
 
-    <div class="hero__portrait-wrap reveal" data-reveal>
-      <button class="portrait" type="button" data-portal aria-label="Descend to selected work">
-        <span class="portrait__deco" aria-hidden="true"></span>
-        <span class="portrait__frame">
-          <img class="portrait__photo" src="{{ '/assets/images/amir-portal.jpg' | relative_url }}" alt="Portrait of {{ site.author }}" width="360" height="360" fetchpriority="high" decoding="async">
-        </span>
-        <span class="portrait__hint" aria-hidden="true">Descend</span>
+    <div class="hero__portal-wrap reveal" data-reveal>
+      {% include cameo.html img="rick" alt="Rick Sanchez" quote="Wubba lubba dub dub!" class="cameo--rick" eager=true %}
+      {% include cameo.html img="morty" alt="Morty Smith" quote="Aw geez, he actually ships stuff!" class="cameo--morty" eager=true %}
+      <button class="portal" type="button" data-portal aria-label="Jump through the portal to selected work">
+        <span class="portal__ring portal__ring--outer" aria-hidden="true"></span>
+        <span class="portal__ring portal__ring--mid" aria-hidden="true"></span>
+        <span class="portal__ring portal__ring--inner" aria-hidden="true"></span>
+        <span class="portal__core" aria-hidden="true"></span>
+        <img class="portal__photo" src="{{ '/assets/images/amir-portal.jpg' | relative_url }}" alt="Portrait of {{ site.author }}" width="360" height="360" fetchpriority="high" decoding="async">
+        <span class="portal__hint" aria-hidden="true">Enter&nbsp;→</span>
       </button>
-      <p class="hero__caption">Tehran nights · production AI</p>
+      <span class="hero__caption" aria-hidden="true">* engineer from dimension C-137’s job market</span>
     </div>
   </div>
 

@@ -1,13 +1,10 @@
 <header class="site-header" data-header>
   <div class="site-header__inner">
     <a class="logo" href="{{ '/' | relative_url }}">
-      <span class="logo__mark" aria-hidden="true">
+      <span class="logo__portal">
         <img class="logo__img" src="{{ site.portrait | relative_url }}" alt="" width="36" height="36">
       </span>
-      <span class="logo__text">
-        <span class="logo__name">{{ site.title }}</span>
-        <span class="logo__city">Gotham · Noir</span>
-      </span>
+      <span class="logo__text">{{ site.title }}</span>
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
       <span class="sr-only">Menu</span>

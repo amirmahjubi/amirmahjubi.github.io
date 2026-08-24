@@ -10,8 +10,7 @@
   var progress = document.querySelector("[data-progress]");
   var glow = document.querySelector("[data-cursor-glow]");
 
-  var skyline = document.querySelector(".hero__skyline img");
-
+  /* ---------- Header state + scroll progress ---------- */
   function onScroll() {
     var y = window.scrollY || window.pageYOffset;
     if (header) header.classList.toggle("is-scrolled", y > 20);
@@ -21,16 +20,13 @@
       var max = doc.scrollHeight - doc.clientHeight;
       progress.style.width = (max > 0 ? (y / max) * 100 : 0) + "%";
     }
-
-    if (skyline && !reduceMotion) {
-      skyline.style.transform = "translate3d(0," + Math.min(y * 0.18, 80) + "px,0)";
-    }
   }
 
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll, { passive: true });
 
+  /* ---------- Mobile nav ---------- */
   if (toggle && nav) {
     toggle.addEventListener("click", function () {
       var open = toggle.getAttribute("aria-expanded") === "true";
@@ -46,12 +42,12 @@
     });
   }
 
-  /* ---------- Rain ---------- */
-  var canvas = document.querySelector("[data-rain]");
+  /* ---------- Starfield ---------- */
+  var canvas = document.querySelector("[data-stars]");
   if (canvas && !reduceMotion) {
     var ctx = canvas.getContext("2d");
-    var drops = [];
-    var COUNT = 140;
+    var stars = [];
+    var STAR_COUNT = 110;
 
     function sizeCanvas() {
       var dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -62,53 +58,54 @@
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
 
-    function seedRain() {
-      drops = [];
-      for (var i = 0; i < COUNT; i++) {
-        drops.push({
+    function seedStars() {
+      stars = [];
+      var palette = ["#fffdf5", "#c8f56a", "#24c7d9", "#ff5d9e"];
+      for (var i = 0; i < STAR_COUNT; i++) {
+        stars.push({
           x: Math.random() * window.innerWidth,
           y: Math.random() * window.innerHeight,
-          len: Math.random() * 14 + 8,
-          speed: Math.random() * 10 + 7,
-          alpha: Math.random() * 0.28 + 0.08
+          r: Math.random() * 1.6 + 0.4,
+          color: palette[Math.floor(Math.random() * palette.length)],
+          phase: Math.random() * Math.PI * 2,
+          speed: Math.random() * 0.9 + 0.35
         });
       }
     }
 
-    function drawRain() {
-      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-      ctx.lineWidth = 1;
-      ctx.lineCap = "round";
-      for (var i = 0; i < drops.length; i++) {
-        var d = drops[i];
-        ctx.strokeStyle = "rgba(200, 210, 220," + d.alpha + ")";
-        ctx.beginPath();
-        ctx.moveTo(d.x, d.y);
-        ctx.lineTo(d.x - 1.4, d.y + d.len);
-        ctx.stroke();
-        d.y += d.speed;
-        d.x -= 0.55;
-        if (d.y > window.innerHeight + 20) {
-          d.y = -20;
-          d.x = Math.random() * window.innerWidth;
+    var last = 0;
+    function drawStars(t) {
+      // ~30fps is plenty for twinkling and cheaper on batteries
+      if (t - last > 33) {
+        last = t;
+        ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+        for (var i = 0; i < stars.length; i++) {
+          var s = stars[i];
+          var a = 0.25 + 0.75 * Math.abs(Math.sin(s.phase + t * 0.001 * s.speed));
+          ctx.globalAlpha = a;
+          ctx.fillStyle = s.color;
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+          ctx.fill();
         }
+        ctx.globalAlpha = 1;
       }
-      requestAnimationFrame(drawRain);
+      requestAnimationFrame(drawStars);
     }
 
     sizeCanvas();
-    seedRain();
-    requestAnimationFrame(drawRain);
+    seedStars();
+    requestAnimationFrame(drawStars);
     window.addEventListener("resize", function () {
       sizeCanvas();
-      seedRain();
+      seedStars();
     });
   }
 
-  /* ---------- Split brand letters ---------- */
+  /* ---------- Split brand letters for entrance ---------- */
   var splitTargets = document.querySelectorAll("[data-split]");
   if (splitTargets.length) {
-    var delay = 0.12;
+    var delay = 0.15;
     splitTargets.forEach(function (target) {
       var text = target.getAttribute("data-split") || target.textContent || "";
       target.textContent = "";
@@ -117,7 +114,7 @@
         span.className = "char";
         span.textContent = ch;
         span.style.transitionDelay = delay + "s";
-        delay += 0.04;
+        delay += 0.045;
         target.appendChild(span);
       });
     });
@@ -197,7 +194,7 @@
         var rect = btn.getBoundingClientRect();
         var x = e.clientX - rect.left - rect.width / 2;
         var y = e.clientY - rect.top - rect.height / 2;
-        btn.style.transform = "translate(" + x * 0.14 + "px, " + y * 0.18 + "px)";
+        btn.style.transform = "translate(" + x * 0.18 + "px, " + y * 0.24 + "px) rotate(" + x * 0.02 + "deg)";
       });
       btn.addEventListener("pointerleave", function () {
         btn.style.transform = "";
@@ -205,7 +202,7 @@
     });
   }
 
-  /* ---------- Panel tilt ---------- */
+  /* ---------- Panel tilt toward the cursor ---------- */
   if (!reduceMotion && finePointer) {
     document.querySelectorAll("[data-tilt]").forEach(function (panel) {
       panel.addEventListener("pointermove", function (e) {
@@ -213,7 +210,7 @@
         var px = (e.clientX - rect.left) / rect.width - 0.5;
         var py = (e.clientY - rect.top) / rect.height - 0.5;
         panel.style.transform =
-          "perspective(800px) rotateX(" + (-py * 3.2).toFixed(2) + "deg) rotateY(" + (px * 4).toFixed(2) + "deg) translateY(-3px)";
+          "perspective(700px) rotateX(" + (-py * 4).toFixed(2) + "deg) rotateY(" + (px * 5).toFixed(2) + "deg) translateY(-4px)";
       });
       panel.addEventListener("pointerleave", function () {
         panel.style.transform = "";
@@ -221,7 +218,7 @@
     });
   }
 
-  /* ---------- Portrait: descend to work ---------- */
+  /* ---------- Portal: warp jump to work ---------- */
   var portal = document.querySelector("[data-portal]");
   if (portal) {
     portal.addEventListener("click", function () {
@@ -235,7 +232,7 @@
       if (work) {
         setTimeout(function () {
           work.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
-        }, reduceMotion ? 0 : 160);
+        }, reduceMotion ? 0 : 180);
       }
     });
   }

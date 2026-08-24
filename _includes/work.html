@@ -1,15 +1,15 @@
 <section class="section" id="work">
   <div class="section__inner">
+    {% include cameo.html img="pickle-rick" alt="Pickle Rick" quote="He turned himself into a portfolio!" %}
     <header class="section__header reveal" data-reveal>
-      <span class="file-tag">Case File 01</span>
+      <span class="sticker sticker--green">Chapter 01</span>
       <h2 class="section__title">Selected Work</h2>
-      <p class="section__lede">Production systems at HezarGozar and Datoos Tech, plus open-source and research.</p>
+      <p class="section__lede bubble bubble--lede">Adventures at HezarGozar and Datoos Tech, plus open-source and research episodes.</p>
     </header>
 
     <ol class="panel-grid">
       {% for project in site.data.projects %}
         <li class="panel reveal" data-reveal data-tilt>
-          <span class="panel__index" aria-hidden="true">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
           <div class="panel__meta">
             <span class="panel__org">{{ project.org }}</span>
             <span class="panel__role">{{ project.role }}</span>
@@ -26,7 +26,7 @@
           {% if project.links and project.links.size > 0 %}
             <ul class="link-row">
               {% for link in project.links %}
-                <li><a class="text-link" href="{{ link.url }}" {% if link.url contains 'http' %}rel="noopener" target="_blank"{% endif %}>{{ link.label }}</a></li>
+                <li><a class="text-link" href="{{ link.url }}" {% if link.url contains 'http' %}rel="noopener" target="_blank"{% endif %}>{{ link.label }} →</a></li>
               {% endfor %}
             </ul>
           {% endif %}
